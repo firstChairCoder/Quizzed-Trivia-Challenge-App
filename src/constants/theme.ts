@@ -22,6 +22,7 @@ export type IFontFamily = {
   regular: string;
   bold: string;
   light: string;
+  splash: string
 };
 
 export type IFontSize = {
@@ -64,29 +65,29 @@ export type ITheme = {
 
 const baseColors = {
   highlight: "#D52817",
-  white: "#fff",
-  grey: "#c4c4c4",
+  white: "#FFF",
+  grey: "#C5C5C5",
   greyLight: "#f0f0f0",
   blackLight: "#404040",
-  black: "#0D0D0D",
-  blackOpacity: "rgba(0,0,0,0.5)",
-  yelow: "#d9dc11",
-  red: "#e51818",
-  green: "#11ff00",
+  black: "#282C35",
+  blackOpacity: "rgba(0,0,0,0.4)",
+  yellow: "#D9DC11",
+  red: "#E51818",
+  green: "#11FF00",
 };
 
-export const colors: ITheme = {
-  background: baseColors.white,
+export const colors: IColor = {
+  background: baseColors.black,
   backgroundSecondary: baseColors.grey,
   backgroundModal: baseColors.blackOpacity,
-  elements: baseColors.black,
-  elementsSecuodary: baseColors.blackLight,
-  text: baseColors.black,
-  textSecondary: baseColors.blackLight,
-  textElements: baseColors.white,
+  elements: baseColors.white,
+  elementsSecondary: baseColors.greyLight,
+  text: baseColors.white,
+  textSecondary: baseColors.white,
+  textElements: baseColors.blackLight,
   textElementsSecondary: baseColors.grey,
   textHighlight: baseColors.highlight,
-  warn: baseColors.yelow,
+  warn: baseColors.yellow,
   error: baseColors.red,
   success: baseColors.green,
   elementsThird: baseColors.greyLight,
@@ -96,6 +97,7 @@ export const fontFamily: IFontFamily = {
   regular: "Lato",
   bold: "LatoBold",
   light: "LatoLight",
+  splash: "Splash"
 };
 
 export const fontSize: IFontSize = {

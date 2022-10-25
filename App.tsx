@@ -1,7 +1,8 @@
 import "reflect-metadata";
 
-import { StatusBar } from 'expo-status-bar';
+import React from 'react';
 import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
+import { FrederickatheGreat_400Regular } from '@expo-google-fonts/fredericka-the-great'
 import {
   Lato_300Light,
   Lato_400Regular,
@@ -21,7 +22,8 @@ export default function App() {
     LatoLight: Lato_300Light,
     Lato: Lato_400Regular,
     LatoItalic: Lato_400Regular_Italic,
-    LatoBold: Lato_700Bold
+    LatoBold: Lato_700Bold,
+    Splash: FrederickatheGreat_400Regular
   });
 
   if (!loadedFonts) {
@@ -38,12 +40,3 @@ export default function App() {
   </Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

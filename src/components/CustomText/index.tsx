@@ -1,12 +1,12 @@
 import React from "react";
-import { Text, StyleSheet, StyleProp, ViewStyle } from "react-native";
+import { Text, StyleSheet, StyleProp, ViewStyle, TextStyle } from "react-native";
 
 import { ITheme } from "../../constants/theme";
 
 type TextsProps = {
   theme: ITheme;
   alignCenter?: boolean;
-  style?: StyleProp<ViewStyle>;
+  style?: StyleProp<TextStyle>;
 };
 
 const Body: React.FC<TextsProps> = ({
@@ -53,7 +53,7 @@ const styles = (theme: ITheme) =>
     title: {
       fontSize: theme.fontSize.base,
       fontWeight: "bold",
-      fontFamily: theme.fontFamily.bold,
+      fontFamily: theme.fontFamily.light,
       color: theme.colors.text,
     },
     textCenter: { textAlign: "center" },
