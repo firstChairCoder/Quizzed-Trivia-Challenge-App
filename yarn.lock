@@ -1065,6 +1065,11 @@
   dependencies:
     "@types/hammerjs" "^2.0.36"
 
+"@expo-google-fonts/fredericka-the-great@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.npmjs.org/@expo-google-fonts/fredericka-the-great/-/fredericka-the-great-0.2.2.tgz#ed69d1c4d3221e2a56296b95936a8bee8b59eb01"
+  integrity sha512-BmHaQFp15D0KEFbUGiQfDm2B5IV41JQTsCyy2cTaWTqEuCqrraw6RdwJyAMrEjep3i4Sp+xlNStyWRX5UPt7oA==
+
 "@expo-google-fonts/lato@^0.2.2":
   version "0.2.2"
   resolved "https://registry.npmjs.org/@expo-google-fonts/lato/-/lato-0.2.2.tgz#777a757a74c03a2677ed33dacd7df61cd65b735e"
