@@ -19,8 +19,8 @@ export const ItemListResult: React.FC<ItemListResultProps> = ({
 }) => {
   return (
     <View style={styles(theme).container}>
-      {isCorrectAnswer && <Icon name={"plus-square"} color="#000" size={24} />}
-      {isWrongAnswer && <Icon name={"minus-square"} color="#000" size={24} />}
+      {isCorrectAnswer && <Icon name={"plus-square"} color="#FFF" size={24} />}
+      {isWrongAnswer && <Icon name={"minus-square"} color="#FFF" size={24} />}
       <ReText.Body style={styles(theme).question} theme={theme}>
         {question}
       </ReText.Body>

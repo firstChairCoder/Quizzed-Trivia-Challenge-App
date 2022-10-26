@@ -31,6 +31,8 @@ const Link: React.FC<ButtonProps> = ({
         alignCenter ? styles(theme).center : {},
         style,
       ]}
+      // activeOpacity={(pressed) => (pressed ? 0.7 : 1)}
+      activeOpacity={0.65}
     >
       <ReText.Body theme={theme}>{children}</ReText.Body>
     </TouchableOpacity>
@@ -42,6 +44,10 @@ const styles = (theme: ITheme) =>
     link: {
       height: theme.metrics.buttonHeight,
       width: theme.metrics.buttonWidth,
+      borderRadius: 12,
+      borderWidth: 1,
+      borderColor: "white",
+      marginVertical: 8
     },
     center: {
       alignItems: "center",

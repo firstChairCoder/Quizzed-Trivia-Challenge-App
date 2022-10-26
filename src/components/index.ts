@@ -8,3 +8,4 @@ export * from "./List";
 export * from "./ListResult";
 export * from "./StatusBarCustom";
 export * from "./StatusBarWrapper";
+export * from "./CircleProgress";
