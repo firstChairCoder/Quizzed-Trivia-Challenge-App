@@ -46,7 +46,7 @@ export const Container: React.FC<ContainerProps> = ({
 		return (
 			<>
 				<StatusBarWrapper theme={theme} />
-				<View style={[styles(theme).container, styles(theme).loading]}>
+				<View style={[styles(theme).container, styles(theme).loading, { paddingHorizontal: 20}]}>
 					<StatusBarCustom theme={theme} />
 					<ReText.Body
 						style={styles(theme).error}
