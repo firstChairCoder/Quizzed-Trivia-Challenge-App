@@ -21,6 +21,7 @@ export class ApiClient implements IApiClient {
     this.api = axios.create({
       baseURL:
         "https://opentdb.com/api.php?amount=10&difficulty=hard&type=boolean",
+      timeout: 10000
     });
   }
 

@@ -4,7 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 import { useDispatch, useSelector } from "react-redux";
 import { container } from "tsyringe"
 
-import { CardQuestion, Container, ReText } from "../../components";
+import { CardQuestion, CircleProgress, Container, ReText } from "../../components";
 import { BaseTheme } from "../../constants/theme";
 import { GlobalState } from "../../redux/types";
 import {
@@ -84,6 +84,11 @@ export const Question: React.FC = () => {
       <ReText.Title theme={BaseTheme} alignCenter>
         {quiz.category}
       </ReText.Title>
+      <View style={{ marginTop: 24, height: 96, width: 96, borderRadius: 48, borderColor: "white", justifyContent: "center", alignItems: "center", alignSelf
+    : 'center', borderWidth: 2}}>
+        <CircleProgress percentage={quiz.currentCount} color={"pink"} max={totalCount}  />
+      </View>
+      
       <View style={{ flex: 1, justifyContent: "center" }}>
         <CardQuestion
           theme={BaseTheme}
@@ -91,11 +96,9 @@ export const Question: React.FC = () => {
           onPressTrue={() => handlerController.answerQuestion("True")}
           onPressFalse={() => handlerController.answerQuestion("False")}
         />
-        <ReText.Body
-          theme={BaseTheme}
-          alignCenter
-        >{`${quiz.currentCount} of ${totalCount}`}</ReText.Body>
+        
       </View>
+      <View style={{ width: "100%", height: 8, backgroundColor: "white", borderRadius: 16}} />
     </Container>
   );
 };

@@ -117,7 +117,7 @@ export const metrics: IMetrics = {
   largest: 32,
   inputHeight: "30%",
   inputWidth: "40%",
-  buttonHeight: 40,
+  buttonHeight: 48,
   buttonWidth: "100%",
   buttonHeightSmall: "15%",
   buttonWidthSmall: "20%",

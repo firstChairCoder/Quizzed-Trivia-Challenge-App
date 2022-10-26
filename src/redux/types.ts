@@ -1,20 +1,22 @@
+import { types } from "mobx-state-tree";
+
 export interface IQuizReducer extends QuizEntity {
   answered?: boolean;
   currentCount?: Number;
 }
 export interface IQuizInitialState {
-  loading: boolean,
-  error: boolean,
-  empty: boolean,
-  quizzes: IQuizReducer[],
-  currentQuiz: IQuizReducer,
-  totalCount: Number,
-  correctAnswers: Number,
+  loading: boolean;
+  error: boolean;
+  empty: boolean;
+  quizzes: IQuizReducer[];
+  currentQuiz: IQuizReducer;
+  totalCount: Number;
+  correctAnswers: Number;
 }
 
 interface IActionPayload {
-  answer: boolean,
-  quizzes: QuizEntity[]
+  answer: boolean;
+  quizzes: QuizEntity[];
 }
 
 export interface IQuizActions {
@@ -23,9 +25,9 @@ export interface IQuizActions {
 }
 
 interface IProps {
-  category: string,
-  question: string,
-  correct_answer: boolean,
+  category: string;
+  question: string;
+  correct_answer: boolean;
 }
 
 export class QuizEntity {
@@ -33,11 +35,7 @@ export class QuizEntity {
   question: string;
   correct_answer: boolean;
 
-  constructor ({
-    category,
-    question,
-    correct_answer,
-  }:IProps) {
+  constructor({ category, question, correct_answer }: IProps) {
     this.category = category;
     this.question = question;
     this.correct_answer = correct_answer;
