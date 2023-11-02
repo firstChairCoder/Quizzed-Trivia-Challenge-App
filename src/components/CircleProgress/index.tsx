@@ -32,8 +32,8 @@ export const CircleProgress: FC<CircleProgressProps> = ({
   max = 100,
 }) => {
   const animated = useRef(new Animated.Value(0)).current;
-  const circleRef = useRef();
-  const inputRef = useRef();
+  const circleRef = useRef(null);
+  const inputRef = useRef<TextInput>();
   const circumference = 2 * Math.PI * radius;
   const halfCircle = radius + strokeWidth;
 
@@ -60,18 +60,18 @@ export const CircleProgress: FC<CircleProgressProps> = ({
           });
         }
         if (circleRef?.current) {
+          // @ts-ignore -- TODO: fix type error
           circleRef.current.setNativeProps({
             strokeDashoffset,
           });
         }
-      },
-      [max, percentage]
+      }
     );
 
     return () => {
       animated.removeAllListeners();
     };
-  });
+  }, [max, percentage]);
 
   return (
     <View style={{ width: radius * 2, height: radius * 2 }}>
@@ -80,6 +80,7 @@ export const CircleProgress: FC<CircleProgressProps> = ({
         width={radius * 2}
         viewBox={`0 0 ${halfCircle * 2} ${halfCircle * 2}`}
       >
+        {/* @ts-ignore -- TODO: fix type error */}
         <G rotation="-90" origin={`${halfCircle}, ${halfCircle}`}>
           <Circle
             ref={circleRef}

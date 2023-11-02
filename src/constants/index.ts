@@ -24,10 +24,12 @@ export interface IGetAllQuizUseCase {
   call(): Promise<QuizEntity[]>;
 }
 
+//@ts-ignore -- TODO: fix type error
 @injectable()
 export class GetAllQuizUseCase implements IGetAllQuizUseCase {
 
   constructor(
+    //@ts-ignore -- TODO: fix type error
     @inject(InjectContants.IQuizRepository)
     private readonly repository: IQuizRepository
   ) {}

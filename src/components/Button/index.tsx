@@ -32,7 +32,6 @@ const Link: FC<ButtonProps> = ({
         alignCenter ? styles(theme).center : {},
         style,
       ]}
-      // activeOpacity={(pressed) => (pressed ? 0.7 : 1)}
       activeOpacity={0.65}
     >
       <ReText.Body theme={theme}>{children}</ReText.Body>

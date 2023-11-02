@@ -27,7 +27,7 @@ export default function App() {
   });
 
   if (!loadedFonts) {
-    return <ActivityIndicator />;
+    return <ActivityIndicator size={'large'} />;
   }
 
   return (
