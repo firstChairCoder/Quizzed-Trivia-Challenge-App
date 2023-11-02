@@ -11,7 +11,7 @@ export const StatusBarCustom: React.FC<StatusBarCustomProps> = ({ theme }) => {
   return (
     <StatusBar
       backgroundColor={theme.colors.background}
-      barStyle={"dark-content"}
+      barStyle={"light-content"}
     />
   );
 };
