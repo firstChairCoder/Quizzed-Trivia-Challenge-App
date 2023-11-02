@@ -7,9 +7,10 @@ import {
 } from "react-native";
 
 import { ITheme } from "../../constants/theme";
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 
 type TextsProps = {
+  children: ReactNode;
   theme: ITheme;
   alignCenter?: boolean;
   style?: StyleProp<TextStyle>;

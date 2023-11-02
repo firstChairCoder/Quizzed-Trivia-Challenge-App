@@ -12,9 +12,10 @@ import { ReText } from "../CustomText";
 import { Button } from "../Button";
 import ImageError from "../../../assets/images/Error.svg";
 import { ITheme } from "../../constants/theme";
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 
 type ContainerProps = {
+  children: ReactNode;
   theme: ITheme;
   loading?: boolean;
   isScrollList?: boolean;

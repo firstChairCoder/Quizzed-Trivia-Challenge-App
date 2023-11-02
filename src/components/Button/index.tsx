@@ -7,9 +7,10 @@ import {
 
 import { ReText } from "../CustomText";
 import { ITheme } from "../../constants/theme";
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 
 type ButtonProps = {
+  children: ReactNode;
   theme: ITheme;
   onPress: () => void;
   style?: StyleProp<ViewStyle>;

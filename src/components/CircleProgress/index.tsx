@@ -17,7 +17,7 @@ interface CircleProgressProps {
   strokeWidth?: number;
   duration?: number;
   color: string;
-  delay: number;
+  delay?: number;
   textColor?: string;
   max: number;
 }
@@ -28,7 +28,6 @@ export const CircleProgress: FC<CircleProgressProps> = ({
   strokeWidth = 10,
   duration = 500,
   color,
-  delay = 0,
   textColor = "white",
   max = 100,
 }) => {
