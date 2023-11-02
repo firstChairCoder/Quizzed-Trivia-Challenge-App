@@ -2,7 +2,7 @@ import { types } from "mobx-state-tree";
 
 export interface IQuizReducer extends QuizEntity {
   answered?: boolean;
-  currentCount?: Number;
+  currentCount?: number;
 }
 export interface IQuizInitialState {
   loading: boolean;
@@ -10,8 +10,8 @@ export interface IQuizInitialState {
   empty: boolean;
   quizzes: IQuizReducer[];
   currentQuiz: IQuizReducer;
-  totalCount: Number;
-  correctAnswers: Number;
+  totalCount: number;
+  correctAnswers: number;
 }
 
 interface IActionPayload {

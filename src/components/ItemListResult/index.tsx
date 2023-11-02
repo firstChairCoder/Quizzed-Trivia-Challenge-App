@@ -1,9 +1,9 @@
-import React from "react";
 import { View, StyleSheet } from "react-native";
 import { Feather as Icon } from "@expo/vector-icons";
 
 import { ReText } from "../CustomText";
 import { ITheme } from "../../constants/theme";
+import { FC } from "react";
 
 type ItemListResultProps = {
   theme: ITheme;
@@ -11,7 +11,7 @@ type ItemListResultProps = {
   isWrongAnswer: boolean;
   question: string;
 };
-export const ItemListResult: React.FC<ItemListResultProps> = ({
+export const ItemListResult: FC<ItemListResultProps> = ({
   theme,
   isCorrectAnswer,
   isWrongAnswer,

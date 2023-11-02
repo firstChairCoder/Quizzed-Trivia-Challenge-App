@@ -1,15 +1,22 @@
-import React from "react";
-import { Text, StyleSheet, StyleProp, ViewStyle, TextStyle } from "react-native";
+import {
+  Text,
+  StyleSheet,
+  StyleProp,
+  ViewStyle,
+  TextStyle,
+} from "react-native";
 
 import { ITheme } from "../../constants/theme";
+import { FC, ReactNode } from "react";
 
 type TextsProps = {
+  children: ReactNode;
   theme: ITheme;
   alignCenter?: boolean;
   style?: StyleProp<TextStyle>;
 };
 
-const Body: React.FC<TextsProps> = ({
+const Body: FC<TextsProps> = ({
   children,
   theme,
   alignCenter = false,
@@ -26,7 +33,7 @@ const Body: React.FC<TextsProps> = ({
   </Text>
 );
 
-const Title: React.FC<TextsProps> = ({
+const Title: FC<TextsProps> = ({
   children,
   theme,
   alignCenter = false,

@@ -1,16 +1,16 @@
-import React from "react";
 import { StyleSheet } from "react-native";
 
 import { ITheme } from "../../constants/theme";
 import { List } from "../List";
 import { ItemListResult } from "../ItemListResult";
 import { IQuizReducer } from "../../redux/types";
+import { FC } from "react";
 
 type ListResultProps<ItemT = IQuizReducer> = {
   theme: ITheme;
   data: Array<ItemT>;
 };
-export const ListResult: React.FC<ListResultProps> = ({ theme, data }) => {
+export const ListResult: FC<ListResultProps> = ({ theme, data }) => {
   return (
     <List
       style={styles.container}

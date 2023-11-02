@@ -1,4 +1,4 @@
-import * as React from "react";
+import { FC, useEffect, useRef } from "react";
 import {
   Easing,
   TextInput,
@@ -17,24 +17,23 @@ interface CircleProgressProps {
   strokeWidth?: number;
   duration?: number;
   color: string;
-  delay: number;
+  delay?: number;
   textColor?: string;
   max: number;
 }
 
-export const CircleProgress: React.FC<CircleProgressProps> = ({
+export const CircleProgress: FC<CircleProgressProps> = ({
   percentage,
   radius = 48,
   strokeWidth = 10,
   duration = 500,
   color,
-  delay = 0,
   textColor = "white",
   max = 100,
 }) => {
-  const animated = React.useRef(new Animated.Value(0)).current;
-  const circleRef = React.useRef();
-  const inputRef = React.useRef();
+  const animated = useRef(new Animated.Value(0)).current;
+  const circleRef = useRef(null);
+  const inputRef = useRef<TextInput>();
   const circumference = 2 * Math.PI * radius;
   const halfCircle = radius + strokeWidth;
 
@@ -48,7 +47,7 @@ export const CircleProgress: React.FC<CircleProgressProps> = ({
     }).start();
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     animation(percentage);
     animated.addListener(
       (v) => {
@@ -61,18 +60,18 @@ export const CircleProgress: React.FC<CircleProgressProps> = ({
           });
         }
         if (circleRef?.current) {
+          // @ts-ignore -- TODO: fix type error
           circleRef.current.setNativeProps({
             strokeDashoffset,
           });
         }
-      },
-      [max, percentage]
+      }
     );
 
     return () => {
       animated.removeAllListeners();
     };
-  });
+  }, [max, percentage]);
 
   return (
     <View style={{ width: radius * 2, height: radius * 2 }}>
@@ -81,6 +80,7 @@ export const CircleProgress: React.FC<CircleProgressProps> = ({
         width={radius * 2}
         viewBox={`0 0 ${halfCircle * 2} ${halfCircle * 2}`}
       >
+        {/* @ts-ignore -- TODO: fix type error */}
         <G rotation="-90" origin={`${halfCircle}, ${halfCircle}`}>
           <Circle
             ref={circleRef}

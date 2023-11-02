@@ -1,10 +1,10 @@
-import React from "react";
 import { View, StyleSheet } from "react-native";
 
 import { ReText } from "../CustomText";
 import { Card } from "../Card";
 import { Button } from "../Button";
 import { ITheme } from "../../constants/theme";
+import { FC } from "react";
 
 type CardQuestionProps = {
   theme: ITheme;
@@ -12,7 +12,7 @@ type CardQuestionProps = {
   onPressTrue: () => void;
   onPressFalse: () => void;
 };
-export const CardQuestion: React.FC<CardQuestionProps> = ({
+export const CardQuestion: FC<CardQuestionProps> = ({
   theme,
   label,
   onPressFalse,

@@ -1,24 +1,24 @@
-import React from "react";
 import { StyleSheet, View } from "react-native";
-import { useNavigation } from "@react-navigation/native"
+import { useNavigation } from "@react-navigation/native";
 
-import { Button, Container, ReText } from '../../components';
-import { BaseTheme, ITheme } from '../../constants/theme';
+import { Button, Container, ReText } from "../../components";
+import { BaseTheme, ITheme } from "../../constants/theme";
 import { navigationConstants } from "../../constants";
 
 const useHomeController = () => {
   const navigation = useNavigation();
-  const navigateToQuestion = () => navigation.navigate(navigationConstants.QUESTION as never);
+  const navigateToQuestion = () =>
+    navigation.navigate(navigationConstants.QUESTION as never);
 
   return {
     handleController: {
-      navigateToQuestion
-    }
-  }
-}
+      navigateToQuestion,
+    },
+  };
+};
 
-export const Home: React.FC = () => {
-  const {handleController} = useHomeController();
+export const Home = () => {
+  const { handleController } = useHomeController();
   return (
     <Container theme={BaseTheme}>
       <View style={styles(BaseTheme).container}>
@@ -46,10 +46,11 @@ export const Home: React.FC = () => {
   );
 };
 
-const styles = (theme: ITheme) => StyleSheet.create({
+const styles = (theme: ITheme) =>
+  StyleSheet.create({
     container: {
-      justifyContent: 'space-between',
+      justifyContent: "space-between",
       padding: theme.metrics.base,
-      height: '100%',
-    }
+      height: "100%",
+    },
   });

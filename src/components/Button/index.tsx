@@ -1,4 +1,3 @@
-import React from "react";
 import {
   TouchableOpacity,
   StyleSheet,
@@ -8,15 +7,17 @@ import {
 
 import { ReText } from "../CustomText";
 import { ITheme } from "../../constants/theme";
+import { FC, ReactNode } from "react";
 
 type ButtonProps = {
+  children: ReactNode;
   theme: ITheme;
   onPress: () => void;
   style?: StyleProp<ViewStyle>;
   alignCenter?: boolean;
 };
 
-const Link: React.FC<ButtonProps> = ({
+const Link: FC<ButtonProps> = ({
   children,
   theme,
   style,
@@ -31,7 +32,6 @@ const Link: React.FC<ButtonProps> = ({
         alignCenter ? styles(theme).center : {},
         style,
       ]}
-      // activeOpacity={(pressed) => (pressed ? 0.7 : 1)}
       activeOpacity={0.65}
     >
       <ReText.Body theme={theme}>{children}</ReText.Body>
@@ -47,7 +47,7 @@ const styles = (theme: ITheme) =>
       borderRadius: 12,
       borderWidth: 1,
       borderColor: "white",
-      marginVertical: 8
+      marginVertical: 8,
     },
     center: {
       alignItems: "center",
