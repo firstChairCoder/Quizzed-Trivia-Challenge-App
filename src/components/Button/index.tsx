@@ -1,4 +1,3 @@
-import React from "react";
 import {
   TouchableOpacity,
   StyleSheet,
@@ -8,6 +7,7 @@ import {
 
 import { ReText } from "../CustomText";
 import { ITheme } from "../../constants/theme";
+import { FC } from "react";
 
 type ButtonProps = {
   theme: ITheme;
@@ -16,7 +16,7 @@ type ButtonProps = {
   alignCenter?: boolean;
 };
 
-const Link: React.FC<ButtonProps> = ({
+const Link: FC<ButtonProps> = ({
   children,
   theme,
   style,
@@ -47,7 +47,7 @@ const styles = (theme: ITheme) =>
       borderRadius: 12,
       borderWidth: 1,
       borderColor: "white",
-      marginVertical: 8
+      marginVertical: 8,
     },
     center: {
       alignItems: "center",

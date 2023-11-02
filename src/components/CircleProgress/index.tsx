@@ -1,4 +1,4 @@
-import * as React from "react";
+import { FC, useEffect, useRef } from "react";
 import {
   Easing,
   TextInput,
@@ -22,7 +22,7 @@ interface CircleProgressProps {
   max: number;
 }
 
-export const CircleProgress: React.FC<CircleProgressProps> = ({
+export const CircleProgress: FC<CircleProgressProps> = ({
   percentage,
   radius = 48,
   strokeWidth = 10,
@@ -32,9 +32,9 @@ export const CircleProgress: React.FC<CircleProgressProps> = ({
   textColor = "white",
   max = 100,
 }) => {
-  const animated = React.useRef(new Animated.Value(0)).current;
-  const circleRef = React.useRef();
-  const inputRef = React.useRef();
+  const animated = useRef(new Animated.Value(0)).current;
+  const circleRef = useRef();
+  const inputRef = useRef();
   const circumference = 2 * Math.PI * radius;
   const halfCircle = radius + strokeWidth;
 
@@ -48,7 +48,7 @@ export const CircleProgress: React.FC<CircleProgressProps> = ({
     }).start();
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     animation(percentage);
     animated.addListener(
       (v) => {

@@ -1,11 +1,11 @@
-import React from "react";
 import { StyleSheet, View } from "react-native";
 
 import { Container, ReText } from "../../components";
 import { BaseTheme, ITheme } from "../../constants/theme";
+import { FC, useEffect } from "react";
 
-export const SplashScreen: React.FC = ({ navigation }) => {
-  React.useEffect(() => {
+export const SplashScreen: FC = ({ navigation }) => {
+  useEffect(() => {
     setTimeout(() => {
       navigation.navigate("Home");
     }, 3500);
@@ -14,8 +14,12 @@ export const SplashScreen: React.FC = ({ navigation }) => {
   return (
     <Container theme={BaseTheme}>
       <View style={styles(BaseTheme).container}>
-        <ReText.Title theme={BaseTheme} alignCenter style={styles(BaseTheme).logo}>
-          Trivia{'\n'} Challenge
+        <ReText.Title
+          theme={BaseTheme}
+          alignCenter
+          style={styles(BaseTheme).logo}
+        >
+          Trivia{"\n"} Challenge
         </ReText.Title>
       </View>
     </Container>
@@ -31,11 +35,11 @@ const styles = (theme: ITheme) =>
       backgroundColor: theme.colors.background,
     },
     logo: {
-		fontWeight: "normal",
+      fontWeight: "normal",
       fontSize: theme.fontSize.extraLargest * 1.5,
       fontFamily: theme.fontFamily.splash,
       color: theme.colors.text,
-	  textTransform: "uppercase",
-	  width: "100%"
+      textTransform: "uppercase",
+      width: "100%",
     },
   });

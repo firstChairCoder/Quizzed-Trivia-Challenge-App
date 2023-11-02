@@ -1,13 +1,13 @@
-import React from "react";
 import { StatusBar } from "react-native";
 
 import { ITheme } from "../../constants/theme";
+import { FC } from "react";
 
 type StatusBarCustomProps = {
   theme: ITheme;
 };
 
-export const StatusBarCustom: React.FC<StatusBarCustomProps> = ({ theme }) => {
+export const StatusBarCustom: FC<StatusBarCustomProps> = ({ theme }) => {
   return (
     <StatusBar
       backgroundColor={theme.colors.background}

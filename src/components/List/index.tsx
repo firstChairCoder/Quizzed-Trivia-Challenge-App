@@ -1,4 +1,3 @@
-import React from "react";
 import {
   View,
   FlatList,
@@ -9,6 +8,7 @@ import {
 } from "react-native";
 
 import { ITheme } from "../../constants/theme";
+import { FC } from "react";
 
 type ListProps<ItemT = any> = {
   theme: ITheme;
@@ -17,7 +17,7 @@ type ListProps<ItemT = any> = {
   style?: StyleProp<ViewStyle>;
 };
 
-export const List: React.FC<ListProps> = ({ data, item, style, theme }) => {
+export const List: FC<ListProps> = ({ data, item, style, theme }) => {
   return (
     <View style={style}>
       <FlatList

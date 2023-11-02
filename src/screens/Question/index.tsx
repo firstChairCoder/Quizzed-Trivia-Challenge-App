@@ -1,10 +1,14 @@
-import React from "react";
-import { View } from "react-native"
+import { View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useDispatch, useSelector } from "react-redux";
-import { container } from "tsyringe"
+import { container } from "tsyringe";
 
-import { CardQuestion, CircleProgress, Container, ReText } from "../../components";
+import {
+  CardQuestion,
+  CircleProgress,
+  Container,
+  ReText,
+} from "../../components";
 import { BaseTheme } from "../../constants/theme";
 import { GlobalState } from "../../redux/types";
 import {
@@ -12,7 +16,7 @@ import {
   quizLoadEmpty,
   quizLoadSuccess,
   quizLoadFailure,
-  quizAnswerSuccess
+  quizAnswerSuccess,
 } from "../../redux/actions";
 import {
   InjectContants,
@@ -20,17 +24,26 @@ import {
   IGetAllQuizUseCase,
   GetAllQuizUseCase,
 } from "../../constants";
-import { ApiClient } from "../../services/api"
+import { ApiClient } from "../../services/api";
 import { QuizDatasource, QuizRepository } from "../../services/quizDatasource";
+import { FC, useEffect } from "react";
 
 export const quizDependences = () => {
-  container.register(InjectContants.IApiClient,{useValue: new ApiClient({mockSimulate: false})});
-  container.register(InjectContants.IQuizDatasource,{useClass: QuizDatasource});
-  container.register(InjectContants.IQuizRepository,{useClass: QuizRepository});
-  container.register(InjectContants.GetAllQuizUseCase,{useClass: GetAllQuizUseCase});
-}
+  container.register(InjectContants.IApiClient, {
+    useValue: new ApiClient({ mockSimulate: false }),
+  });
+  container.register(InjectContants.IQuizDatasource, {
+    useClass: QuizDatasource,
+  });
+  container.register(InjectContants.IQuizRepository, {
+    useClass: QuizRepository,
+  });
+  container.register(InjectContants.GetAllQuizUseCase, {
+    useClass: GetAllQuizUseCase,
+  });
+};
 
-quizDependences()
+quizDependences();
 const useQuestionController = () => {
   const state = useSelector((state: GlobalState) => state.quizReducer);
   const dispatch = useDispatch();
@@ -39,7 +52,7 @@ const useQuestionController = () => {
     InjectContants.GetAllQuizUseCase
   );
 
-  React.useEffect(() => {
+  useEffect(() => {
     const load = async () => {
       dispatch(quizStatusLoading());
       try {
@@ -74,7 +87,7 @@ const useQuestionController = () => {
   };
 };
 
-export const Question: React.FC = () => {
+export const Question: FC = () => {
   const {
     getController: { quiz, loading, totalCount, empty, error },
     handlerController,
@@ -84,11 +97,26 @@ export const Question: React.FC = () => {
       <ReText.Title theme={BaseTheme} alignCenter>
         {quiz.category}
       </ReText.Title>
-      <View style={{ marginTop: 24, height: 96, width: 96, borderRadius: 48, borderColor: "white", justifyContent: "center", alignItems: "center", alignSelf
-    : 'center', borderWidth: 2}}>
-        <CircleProgress percentage={quiz.currentCount} color={"pink"} max={totalCount}  />
+      <View
+        style={{
+          marginTop: 24,
+          height: 96,
+          width: 96,
+          borderRadius: 48,
+          borderColor: "white",
+          justifyContent: "center",
+          alignItems: "center",
+          alignSelf: "center",
+          borderWidth: 2,
+        }}
+      >
+        <CircleProgress
+          percentage={quiz.currentCount}
+          color={"pink"}
+          max={totalCount}
+        />
       </View>
-      
+
       <View style={{ flex: 1, justifyContent: "center" }}>
         <CardQuestion
           theme={BaseTheme}
@@ -96,9 +124,15 @@ export const Question: React.FC = () => {
           onPressTrue={() => handlerController.answerQuestion("True")}
           onPressFalse={() => handlerController.answerQuestion("False")}
         />
-        
       </View>
-      <View style={{ width: "100%", height: 8, backgroundColor: "white", borderRadius: 16}} />
+      <View
+        style={{
+          width: "100%",
+          height: 8,
+          backgroundColor: "white",
+          borderRadius: 16,
+        }}
+      />
     </Container>
   );
 };

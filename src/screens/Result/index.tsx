@@ -1,10 +1,10 @@
-import React from "react";
 import { StackActions, useNavigation } from "@react-navigation/native";
 import { useSelector } from "react-redux";
 
 import { Button, List, ListResult, Container, ReText } from "../../components";
 import { BaseTheme } from "../../constants/theme";
 import { GlobalState } from "../../redux/types";
+import { FC } from "react";
 
 const useResultController = () => {
   const state = useSelector((state: GlobalState) => state.quizReducer);
@@ -20,7 +20,7 @@ const useResultController = () => {
   };
 };
 
-export const Result: React.FC = () => {
+export const Result: FC = () => {
   const {
     getController: { quiz },
     handlerController,
