@@ -111,7 +111,7 @@ export const Question: FC = () => {
         }}
       >
         <CircleProgress
-          percentage={quiz.currentCount}
+          percentage={quiz.currentCount ?? 0}
           color={"pink"}
           max={totalCount}
         />

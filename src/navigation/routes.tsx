@@ -2,7 +2,14 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { Home, Question, Result, SplashScreen } from "../screens";
 import { FC } from "react";
 
-const Stack = createStackNavigator();
+export type RootStackParamList = {
+  Splash: {};
+  Home: {};
+  Question: {};
+  Result: {}
+}
+
+const Stack = createStackNavigator<RootStackParamList>();
 
 export const Routes: FC = () => {
   return (

@@ -3,8 +3,12 @@ import { StyleSheet, View } from "react-native";
 import { Container, ReText } from "../../components";
 import { BaseTheme, ITheme } from "../../constants/theme";
 import { FC, useEffect } from "react";
+import { StackScreenProps } from "@react-navigation/stack";
+import { RootStackParamList } from "../../navigation/routes";
 
-export const SplashScreen: FC = ({ navigation }) => {
+type SplashScreenProps = StackScreenProps<RootStackParamList, 'Splash'>
+
+export const SplashScreen: FC<SplashScreenProps> = ({ navigation }) => {
   useEffect(() => {
     setTimeout(() => {
       navigation.navigate("Home");
@@ -35,7 +39,6 @@ const styles = (theme: ITheme) =>
       backgroundColor: theme.colors.background,
     },
     logo: {
-      fontWeight: "normal",
       fontSize: theme.fontSize.extraLargest * 1.5,
       fontFamily: theme.fontFamily.splash,
       color: theme.colors.text,

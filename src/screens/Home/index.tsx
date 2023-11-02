@@ -4,7 +4,6 @@ import { useNavigation } from "@react-navigation/native";
 import { Button, Container, ReText } from "../../components";
 import { BaseTheme, ITheme } from "../../constants/theme";
 import { navigationConstants } from "../../constants";
-import { FC } from "react";
 
 const useHomeController = () => {
   const navigation = useNavigation();
@@ -18,7 +17,7 @@ const useHomeController = () => {
   };
 };
 
-export const Home: FC = () => {
+export const Home = () => {
   const { handleController } = useHomeController();
   return (
     <Container theme={BaseTheme}>

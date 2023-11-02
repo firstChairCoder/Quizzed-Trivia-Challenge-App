@@ -20,7 +20,7 @@ const useResultController = () => {
   };
 };
 
-export const Result: FC = () => {
+export const Result = () => {
   const {
     getController: { quiz },
     handlerController,
